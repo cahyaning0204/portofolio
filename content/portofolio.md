@@ -16,7 +16,7 @@ theme:
 profile:
   fullName: "Cahyaning Sessa Lestari"
   nickname: "Sessa"
-  tagline: "Software Engineering Student & UI/UX Designer"
+  tagline: "Software Engineering Student"
   cvUrl: "/cv.pdf"
   nationality: "Indonesia"
   heroQuote: "I’m passionate about technology, design, and continuous learning. I enjoy exploring new ideas, building digital solutions, and finding practical ways to turn challenges into opportunities."
