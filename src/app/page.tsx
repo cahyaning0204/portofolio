@@ -29,6 +29,7 @@ export default function Home() {
     socials = {},
     contact = {},
     education = [],
+    projectExperience = [],
     softSkills = [],
     technicalSkills = {
       softwareTools: [],
@@ -44,7 +45,7 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-x-clip selection:bg-[#F6B12D] selection:text-[#121212]">
       {/* =========================================================
-0. STICKY FULL-WIDTH NAVBAR
+0. STICKY FULL-WIDTH NAVBAR (Responsif HP & Desktop)
          ========================================================= */}
       <Navbar
         brandName={profile.fullName || 'Cahyaning Sessa Lestari'}
@@ -56,6 +57,7 @@ export default function Home() {
          ========================================================= */}
       <section className="bg-[#354733] text-[#F5EFE6] px-5 sm:px-8 md:px-16 pt-12 sm:pt-16 pb-24 sm:pb-28 relative">
         <div className="max-w-5xl mx-auto relative text-center">
+          {/* Badge Role / Tagline */}
           {profile.tagline && (
             <Reveal delay={0}>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#F6B12D]/40 bg-[#F6B12D]/10 px-3.5 py-1.5 text-[11px] sm:text-xs font-medium text-[#F6B12D] mb-4 sm:mb-5 max-w-full">
@@ -71,14 +73,17 @@ export default function Home() {
             </h1>
           </Reveal>
 
+          {/* Layout 2 Kolom Seimbang */}
           <Reveal delay={240}>
             <div className="max-w-4xl mx-auto mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-[#F5EFE6]/15 grid md:grid-cols-12 items-center gap-6 sm:gap-8">
+              {/* Quote Kiri */}
               <div className="md:col-span-7 text-left">
                 <p className="text-xs sm:text-sm leading-relaxed text-[#F5EFE6]/90 border-l-2 border-[#F6B12D] pl-3.5 sm:pl-4">
                   {profile.heroQuote}
                 </p>
               </div>
 
+              {/* Teks Outline + Sosial Media Kanan */}
               <div className="md:col-span-5 text-left md:text-right flex flex-col md:items-end">
                 <div className="font-serif text-3xl sm:text-5xl font-bold leading-none select-none mb-3 sm:mb-4">
                   <p className="text-stroke-cream">FOLIO</p>
@@ -94,6 +99,7 @@ export default function Home() {
           </Reveal>
         </div>
 
+        {/* Tombol Bulat "Scroll down" di Perbatasan Section */}
         <a
           href="#about"
           className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#F6B12D] text-[#121212] font-serif font-bold text-xs sm:text-sm flex items-center justify-center text-center leading-tight shadow-lg absolute -bottom-10 sm:-bottom-12 left-1/2 -translate-x-1/2 hover:scale-105 transition"
@@ -169,36 +175,39 @@ export default function Home() {
               </div>
             </Reveal>
 
-            {/* ACHIEVEMENTS */}
+            {/* PROJECTS BOX (Kuning Mustard #F6B12D) */}
             <Reveal delay={150}>
-              <div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#354733] mb-5">
-                  Achievements
+              <div className="bg-[#F6B12D] p-6 sm:p-8 rounded-sm shadow-sm">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold mb-5 sm:mb-6">
+                  Projects
                 </h3>
-                <div className="space-y-4">
-                  {achievements.map((item: any, idx: number) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-3.5 bg-white/60 border border-[#121212]/15 p-4 rounded-sm"
-                    >
-                      <div className="w-10 h-10 rounded-full bg-[#F6B12D] flex items-center justify-center shrink-0 mt-0.5">
-                        <Trophy className="w-5 h-5 text-[#121212]" />
-                      </div>
+                <div className="space-y-5 mb-8">
+                  {projectExperience.map((proj: any, idx: number) => (
+                    <div key={idx} className="flex gap-3 items-start">
+                      <Sparkles className="w-4 h-4 text-white fill-white mt-1 shrink-0" />
+                      <span className="font-serif font-bold text-xs sm:text-sm shrink-0">
+                        {proj.year}
+                      </span>
                       <div>
-                        <div className="flex items-center gap-2 mb-0.5">
-                          <span className="font-serif font-bold text-xs text-[#E06D53]">
-                            {item.year}
-                          </span>
-                          <span className="text-neutral-400">•</span>
-                          <p className="font-bold text-sm text-[#121212]">
-                            {item.title}
-                          </p>
-                        </div>
-                        <p className="text-xs font-medium text-neutral-700">
-                          {item.award}
+                        <p className="font-bold text-sm">
+                          {proj.title} — <span className="font-semibold">{proj.role}</span>
                         </p>
+                        <p className="text-xs text-[#121212]/80 mt-0.5">{proj.description}</p>
+                        <p className="text-xs font-semibold mt-0.5">{proj.type}</p>
                       </div>
                     </div>
+                  ))}
+                </div>
+
+                {/* Soft Skills Pills */}
+                <div className="flex flex-wrap gap-2">
+                  {softSkills.map((tag: string) => (
+                    <span
+                      key={tag}
+                      className="bg-[#121212] text-white text-xs px-3.5 sm:px-4 py-1.5 rounded-full"
+                    >
+                      {tag}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -288,7 +297,7 @@ export default function Home() {
               </div>
             </Reveal>
 
-            {/* TECHNICAL SKILLS & SOFT SKILLS BOX */}
+            {/* TECHNICAL SKILLS BOX */}
             <Reveal delay={150}>
               <div className="bg-[#354733] text-white p-6 sm:p-8 relative overflow-hidden">
                 <div className="font-serif text-4xl sm:text-5xl font-bold leading-none select-none opacity-25 mb-2">
@@ -333,7 +342,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2">
                   {technicalSkills.coreCompetencies?.map((skill: string) => (
                     <span
                       key={skill}
@@ -343,19 +352,6 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-
-                {softSkills.length > 0 && (
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-white/15">
-                    {softSkills.map((tag: string) => (
-                      <span
-                        key={tag}
-                        className="bg-[#F6B12D] text-[#121212] font-semibold text-xs px-3.5 py-1.5 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
               </div>
             </Reveal>
 
@@ -373,12 +369,46 @@ export default function Home() {
                 </div>
               </div>
             </Reveal>
+
+            {/* ACHIEVEMENTS */}
+            <Reveal delay={150}>
+              <div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#354733] mb-5">
+                  Achievements
+                </h3>
+                <div className="space-y-4">
+                  {achievements.map((item: any, idx: number) => (
+                    <Reveal key={idx} delay={idx * 100}>
+                      <div className="flex items-start gap-3.5 bg-white/60 border border-[#121212]/15 p-4 rounded-sm">
+                        <div className="w-10 h-10 rounded-full bg-[#F6B12D] flex items-center justify-center shrink-0 mt-0.5">
+                          <Trophy className="w-5 h-5 text-[#121212]" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2 mb-0.5">
+                            <span className="font-serif font-bold text-xs text-[#E06D53]">
+                              {item.year}
+                            </span>
+                            <span className="text-neutral-400">•</span>
+                            <p className="font-bold text-sm text-[#121212]">
+                              {item.title}
+                            </p>
+                          </div>
+                          <p className="text-xs font-medium text-neutral-700">
+                            {item.award}
+                          </p>
+                        </div>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* =========================================================
-3. SELECTED WORK SECTION (Satu Pusat Daftar Proyek)
+3. SELECTED WORK SECTION (Menu "Work" - Editorial Index Accordion)
          ========================================================= */}
       <section id="work" className="bg-[#354733] text-[#F5EFE6] py-16 sm:py-20 px-5 sm:px-6">
         <div className="max-w-5xl mx-auto">
@@ -406,7 +436,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="bg-[#121212] text-[#F5EFE6]/70 text-center py-6 px-4 text-xs">
-        © {new Date().getFullYear()} {profile.fullName}. Built with Next.js, Tailwind CSS &amp; Markdown.
+        © {new Date().getFullYear()} {profile.fullName}.
       </footer>
     </main>
   );
