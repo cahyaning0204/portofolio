@@ -13,12 +13,12 @@ import {
 } from 'lucide-react';
 
 const toolIcons: Record<string, string> = {
-  Ps: 'adobephotoshop',
-  Ai: 'adobeillustrator',
-  Fg: 'figma',
-  Xd: 'adobexd',
-  Ae: 'adobeaftereffects',
-  Uh: 'unity',
+  Ps: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-plain.svg',
+  Ai: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg',
+  Fg: 'https://cdn.simpleicons.org/figma/121212',
+  Xd: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xd/xd-plain.svg',
+  Ae: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-plain.svg',
+  Uh: 'https://cdn.simpleicons.org/unity/121212',
 };
 
 export default function Home() {
@@ -303,18 +303,18 @@ export default function Home() {
                     <p className="font-serif text-sm mb-3">Software tools</p>
                     <div className="flex flex-wrap gap-2.5">
                       {technicalSkills.softwareTools?.map((tool: any) => {
-                        const iconSlug = toolIcons[tool.code];
+                        const iconUrl = toolIcons[tool.code];
                         return (
                           <span
                             key={tool.code}
                             title={tool.name}
                             className="bg-white text-[#121212] font-bold text-xs w-9 h-9 flex items-center justify-center rounded shadow-xs hover:scale-105 transition"
                           >
-                            {iconSlug ? (
+                            {iconUrl ? (
                               <img
-                                src={`https://cdn.simpleicons.org/${iconSlug}/121212`}
+                                src={iconUrl}
                                 alt={tool.name}
-                                className="w-5 h-5 object-contain"
+                                className="w-5 h-5 object-contain grayscale contrast-200 brightness-50"
                               />
                             ) : (
                               tool.code
