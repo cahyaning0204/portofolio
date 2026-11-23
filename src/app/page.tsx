@@ -416,7 +416,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="bg-[#121212] text-[#F5EFE6]/70 text-center py-6 px-4 text-xs">
-        © {new Date().getFullYear()} {profile.fullName}. Built with Next.js, Tailwind CSS &amp; Markdown.
+        © {new Date().getFullYear()} {profile.fullName}.
       </footer>
     </main>
   );
