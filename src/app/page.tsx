@@ -268,7 +268,7 @@ export default function Home() {
                     <p className="text-[#F5EFE6]/60 uppercase tracking-wider text-[10px] mb-1">
                       Current Focus
                     </p>
-                    <p className="font-semibold">Software Eng. &amp; UI/UX</p>
+                    <p className="font-semibold">Backend Developer, Frontend Developer, UI/UX Designer</p>
                   </div>
                   <div>
                     <p className="text-[#F5EFE6]/60 uppercase tracking-wider text-[10px] mb-1">
